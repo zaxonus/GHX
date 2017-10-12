@@ -12,6 +12,7 @@
 		9BF766091F8E1FD30068F870 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BF766071F8E1FD30068F870 /* Main.storyboard */; };
 		9BF7660B1F8E1FD30068F870 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BF7660A1F8E1FD30068F870 /* Assets.xcassets */; };
 		9BF7660E1F8E1FD30068F870 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BF7660C1F8E1FD30068F870 /* LaunchScreen.storyboard */; };
+		9BF766161F8E20AE0068F870 /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF766151F8E20AE0068F870 /* SignatureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		9BF7660A1F8E1FD30068F870 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BF7660D1F8E1FD30068F870 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BF7660F1F8E1FD30068F870 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BF766151F8E20AE0068F870 /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				9BF766031F8E1FD30068F870 /* AppDelegate.swift */,
 				9BF766051F8E1FD30068F870 /* ViewController.swift */,
+				9BF766151F8E20AE0068F870 /* SignatureView.swift */,
 				9BF766071F8E1FD30068F870 /* Main.storyboard */,
 				9BF7660A1F8E1FD30068F870 /* Assets.xcassets */,
 				9BF7660C1F8E1FD30068F870 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BF766061F8E1FD30068F870 /* ViewController.swift in Sources */,
+				9BF766161F8E20AE0068F870 /* SignatureView.swift in Sources */,
 				9BF766041F8E1FD30068F870 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +281,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8N92JZ96Z9;
 				INFOPLIST_FILE = GHX/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = michel.bouchet.software.GHX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +297,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8N92JZ96Z9;
 				INFOPLIST_FILE = GHX/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = michel.bouchet.software.GHX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
