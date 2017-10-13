@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.lightGray
         //numberOfPlayers = 105
-        numberOfPlayers = 15
+        numberOfPlayers = 30
 
         tapHandler()
         
@@ -147,11 +147,11 @@ class ViewController: UIViewController {
     }
     
     
-    func setTextOnLabels() {
+    func setTheTextContents() {
         switch gameRandomValue {
-//        case 0:
-//            topLabel.text = ""
-//            bottomLabel.text = ""
+            //        case 0:
+            //            topLabel.text = ""
+        //            bottomLabel.text = ""
         case 0:
             topLabel.text = "Michel wins!"
             bottomLabel.text = "To be or not to be\nThat is the question."
@@ -162,6 +162,11 @@ class ViewController: UIViewController {
             topLabel.text = "Nobody wins!"
             bottomLabel.text = "That is too bad!"
         }
+    }
+    
+    
+    func setTextOnLabels() {
+        setTheTextContents()
         
         let labelFont = UIFont.preferredFont(forTextStyle: .title1)
         topLabel.font = labelFont
@@ -196,8 +201,10 @@ class ViewController: UIViewController {
         
         gameRandomValue = Int(arc4random_uniform(UInt32(numberOfPlayers)))
         
-        let randomMod3,randomMod5,randomMod7:Int
+        let randomMod2,randomMod3,randomMod5,randomMod7:Int
         
+        if (numberOfPlayers % 2 == 0) {randomMod2 = gameRandomValue % 2}
+        else {randomMod2 = 0}
         if (numberOfPlayers % 3 == 0) {randomMod3 = gameRandomValue % 3}
         else {randomMod3 = 0}
         if (numberOfPlayers % 5 == 0) {randomMod5 = gameRandomValue % 5}
@@ -208,7 +215,8 @@ class ViewController: UIViewController {
         signature = SignatureView(frame: CGRect.zero,
                                   color: randomColor(randomMod7),
                                   border: randomBorder(randomMod3),
-                                  shape: randomMod5)
+                                  shape: randomMod5,
+                                  goldMark: (randomMod2==1))
         signature.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(signature)
         signatureConstraints = getSignatureConstraints()

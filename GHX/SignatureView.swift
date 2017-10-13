@@ -8,16 +8,20 @@
 
 import UIKit
 
+let lineThickness:CGFloat = 13.0,
+    sideLength:CGFloat = UIScreen.main.bounds.size.width * 3.0 / 5.0
+
 class SignatureView: UIView {
     var mainColor,borderColor:UIColor!,
-    shapeNumber:Int!
+    shapeNumber:Int!, goldenFlag:Bool!
     
-    init(frame: CGRect, color: UIColor, border: UIColor, shape: Int) {
+    init(frame: CGRect, color: UIColor, border: UIColor, shape: Int, goldMark: Bool) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clear
         mainColor = color
         borderColor = border
         shapeNumber = shape
+        goldenFlag = goldMark
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,14 +31,17 @@ class SignatureView: UIView {
     
     override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext(),
-        lineThickness:CGFloat = 13.0,
-        sideLength:CGFloat = UIScreen.main.bounds.size.width * 3.0 / 5.0
+        goldColor = UIColor(red: 212.0/255.0,
+                            green: 175.0/255.0,
+                            blue: 55.0/255.0,
+                            alpha: 1.0)
 
-        func fixPath(color: UIColor, border bdColor: UIColor) {
+        func fixPath(color: UIColor, border bdColor: UIColor,
+                     thickness: CGFloat = lineThickness) {
             context?.closePath()
             context?.setFillColor(color.cgColor)
             context?.setStrokeColor(bdColor.cgColor)
-            context?.setLineWidth(lineThickness)
+            context?.setLineWidth(thickness)
             context?.drawPath(using: .fillStroke)
         }
         
@@ -87,6 +94,29 @@ class SignatureView: UIView {
             fixPath(color: color, border: bdColor)
         }
         
+        func paintStar(color: UIColor, border bdColor: UIColor,
+                                 withRadius radius: CGFloat) {
+            let centerPoint:CGPoint
+            if shapeNumber != 1 {
+                centerPoint = CGPoint(x: rect.width / 2.0,
+                                      y: rect.height / 2.0)
+            } else {
+                centerPoint = CGPoint(x: rect.width / 2.0,
+                                      y: rect.height / 2.0 - sideLength / 5.0)
+            }
+            context?.move(to: CGPoint(x: centerPoint.x,
+                                      y: centerPoint.y + radius))
+            var xCoord,yCoord,angle: CGFloat
+            for i in 1..<10 {
+                angle = CGFloat.pi / 2.0 + (CGFloat.pi * 2.0 * CGFloat(i)) / 10
+                xCoord = centerPoint.x + cos(angle) * radius * ((i%2==1) ? 0.4:1.0)
+                yCoord = centerPoint.y + sin(angle) * radius * ((i%2==1) ? 0.4:1.0)
+                context?.addLine(to: CGPoint(x: xCoord, y: yCoord))
+            }
+            fixPath(color: color, border: bdColor,
+                    thickness: lineThickness / 4.0)
+        }
+        
         func paintPentagon(color: UIColor, border bdColor: UIColor,
                            withRadius radius: CGFloat) {
             paintRegularPolygon(color: color, border: bdColor,
@@ -117,6 +147,11 @@ class SignatureView: UIView {
                          withRadius: sideLength / 2.0)
         default:
             break
+        }
+        
+        if goldenFlag {
+            paintStar(color: goldColor,
+                      border: borderColor, withRadius: sideLength / 6.0)
         }
     }
 }
