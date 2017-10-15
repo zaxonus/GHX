@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.lightGray
         //numberOfPlayers = 105
-        numberOfPlayers = 30
+        numberOfPlayers = 15
 
         tapHandler()
         
