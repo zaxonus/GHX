@@ -155,9 +155,6 @@ class ViewController: UIViewController {
         case 0:
             topLabel.text = "Michel wins!"
             bottomLabel.text = "To be or not to be\nThat is the question."
-        case 1:
-            topLabel.text = "John wins!"
-            bottomLabel.text = "A bird in the hand is\nworth two in the bush."
         default:
             topLabel.text = "Nobody wins!"
             bottomLabel.text = "That is too bad!"
