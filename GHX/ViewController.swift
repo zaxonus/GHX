@@ -149,12 +149,12 @@ class ViewController: UIViewController {
     
     func setTheTextContents() {
         switch gameRandomValue {
-            //        case 0:
-            //            topLabel.text = ""
-        //            bottomLabel.text = ""
-        case 0:
+//        case x: // Template code.
+//            topLabel.text = ""
+//            bottomLabel.text = ""
+        case 0: // Case for Michel winning. (WS)
             topLabel.text = "Michel wins!"
-            bottomLabel.text = "To be or not to be\nThat is the question."
+            bottomLabel.text = "To be, or not to be,\nthat is the question ..."
         default:
             topLabel.text = "Nobody wins!"
             bottomLabel.text = "That is too bad!"
