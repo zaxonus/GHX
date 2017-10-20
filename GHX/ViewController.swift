@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.lightGray
-        //numberOfPlayers = 105
+        //numberOfPlayers = 105 // Commented out.
         numberOfPlayers = 10
 
         tapHandler()
